@@ -46,7 +46,7 @@ public class OAuthServlet extends HttpServlet
 		String stateStr = req.getParameter("state");
 		State state = gson.fromJson(stateStr, State.class);
 
-		String redirUrl = "https://api.runelite.net/" + state.getApiVersion() + "/account/callback";
+		String redirUrl = "https://api.runelite.net/runelite-" + state.getApiVersion() + "/account/callback?" + req.getQueryString();
 		resp.sendRedirect(redirUrl);
 	}
 }
